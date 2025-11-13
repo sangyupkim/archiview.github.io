@@ -1,13 +1,14 @@
+<!-- index.html -->
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>by_ksy_CG</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 호스팅</title>
+</head>
 <body>
-  <body style="text-align:center">
-
-  <h1 style="font-size:50"><br><br>-----&nbsp;&nbsp;&nbsp;&nbsp;-----</a><h1>
-  <h1><a href=lobby/index.html>01. lobby_3F_1</a><h1
-  <h1><a href=lobby_alt/index.html>02. lobby_3F_2</a><h1>
-  <h1><a href=lobby_2F/index.html>03. lobby_2F_1</a><h1>
-  <h1><a href=lobby_2F_alt/index.html>04. lobby_2F_2</a><h1>
-  <h1><a href=office_2/index.html>05. office</a><h1>
+    git pages 입니다.
+</body>
+</html>
+출처: https://devyihyun.tistory.com/203 [이롭게 현명하게:티스토리]

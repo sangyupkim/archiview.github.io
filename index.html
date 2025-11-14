@@ -15,42 +15,48 @@
             text-align: center;
             margin-top: 50px;
         }
+
+        /* 각 이미지+텍스트 묶음 */
+        .item-box {
+            margin-bottom: 50px;  /* 두 이미지 사이 간격 */
+        }
     </style>
 </head>
 
 <body>
 
     <div class="center-box">
-        <h1 style="font-size:50px">관철동 파노마라뷰</h1>
+        <h1 style="font-size:50px">관철동 파노라마뷰</h1>
 
-        <!-- 이미지를 클릭하면 링크로 이동 -->
-        <a href="concerthall/index.html">
-            <img src="Thumbnail/Thumbnail_hall.jpg" class="hover-img" 
-                 alt="관철동 공연장" style="width:500px;">
-        </a>
-
-        <!-- 이미지 아래 텍스트 -->
-        <div style="font-size:24px; margin-top:10px;">
-            <a href="concerthall/index.html" style="text-decoration:none; color:black;">
-                공연장
-
-                        <!-- 이미지를 클릭하면 링크로 이동 -->
-        <a href="concerthall/index.html">
-            <img src="Thumbnail/Thumbnail_top.jpg" class="hover-img" 
-                 alt="관철동 상가" style="width:500px;">
-        </a>
-
-        <!-- 이미지 아래 텍스트 -->
-        <div style="font-size:24px; margin-top:10px;">
-            <a href="shopping/index.html" style="text-decoration:none; color:black;">
-                상가
+        <!-- ===== 1번 이미지 박스 ===== -->
+        <div class="item-box">
+            <a href="concerthall/index.html">
+                <img src="Thumbnail/Thumbnail_hall.jpg" class="hover-img" 
+                     alt="관철동 공연장" style="width:500px;">
             </a>
+
+            <div style="font-size:24px; margin-top:10px;">
+                <a href="concerthall/index.html" style="text-decoration:none; color:black;">
+                    공연장
+                </a>
+            </div>
         </div>
+
+        <!-- ===== 2번 이미지 박스 ===== -->
+        <div class="item-box">
+            <a href="shopping/index.html">
+                <img src="Thumbnail/Thumbnail_top.jpg" class="hover-img" 
+                     alt="관철동 상가" style="width:500px;">
+            </a>
+
+            <div style="font-size:24px; margin-top:10px;">
+                <a href="shopping/index.html" style="text-decoration:none; color:black;">
+                    상가
+                </a>
+            </div>
+        </div>
+
     </div>
 
 </body>
 </html>
-
-
-
-

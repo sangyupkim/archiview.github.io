@@ -1,11 +1,41 @@
-
 <html>
 <head>
-<title>panorama view</title>
+    <title>panorama view</title>
+    <style>
+        /* 이미지 호버 시 확대 효과 */
+        .hover-img {
+            transition: transform 0.3s ease;
+        }
+        .hover-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 전체 가운데 정렬 */
+        .center-box {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
 <body>
-  <body style="text-align:center">
 
-  <h1 style="font-size:50"><br><br>-----&nbsp;&nbsp;&nbsp;&nbsp;-----</a><h1>
-  <h1><a href=concerthall/index.html>관철동 공연장</a><h1
+    <div class="center-box">
+        <h1 style="font-size:50px">-----&nbsp;&nbsp;&nbsp;&nbsp;-----</h1>
 
+        <!-- 이미지를 클릭하면 링크로 이동 -->
+        <a href="concerthall/index.html">
+            <img src="Thumbnail/Thumbnail_hall.jpg" class="hover-img" 
+                 alt="관철동 공연장" style="width:300px;">
+        </a>
 
+        <!-- 이미지 아래 텍스트 -->
+        <div style="font-size:24px; margin-top:10px;">
+            <a href="concerthall/index.html" style="text-decoration:none; color:black;">
+                관철동 공연장
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

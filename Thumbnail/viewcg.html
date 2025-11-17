@@ -69,6 +69,18 @@
             text-decoration: none;
             border-radius: 10px;
             z-index: 9999; /* 버튼을 제일 위로 올림 */
+            /* 아래쪽 버튼 */
+    .next-btn {
+        position: fixed;
+        top: 70px;       /* back 버튼보다 아래 */
+        left: 20px;
+        font-size: 18px;
+        background: rgba(255,255,255,0.2);
+        padding: 8px 12px;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        z-index: 9999;
         }
     </style>
 </head>
@@ -76,7 +88,7 @@
 <body>
 
     <a class="back" href="../shopping/index.html">← 파노라마 돌아가기</a>
-    <a class="back" href="../index.html">← 메인화면 돌아가기</a>
+    <a class="next-btn" href="../index.html">← 메인화면 돌아가기</a>
 
     <div class="slider">
         <div class="slides">

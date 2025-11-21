@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>관철동 상가조감</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 전체 슬라이드 영역 */
+        .slider {
+            position: relative;
+            width: 90%;
+            max-width: 1500px;
+            height: 105vh;
+            overflow: hidden;
+        }
+
+        /* 이미지들이 들어가는 긴 박스 */
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        /* 개별 이미지 */
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: black;
+        }
+
+        /* 좌우 버튼 */
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            background: rgba(0,0,0,0.4);
+            padding: 10px 20px;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 10px;
+        }
+        .btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .left { left: 20px; }
+        .right { right: 20px; }
+
+        /* 닫기 버튼(뒤로가기) */
+        .back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            z-index: 9999; /* 버튼을 제일 위로 올림 */
+            transition: background 0.3s;
+        }
+            .back:hover {
+    background: rgba(255,255,255,0.4); /* 마우스 올리면 밝아짐 */
+}
+            /* 아래쪽 버튼 */
+
+    .next-btn {
+        position: fixed;
+        top: 80px;       /* back 버튼보다 아래 */
+        left: 20px;
+        font-size: 18px;
+        background: rgba(255,255,255,0.2);
+        padding: 8px 12px;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        z-index: 9999;
+        transition: background 0.3s;
+        }
+        .next-btn:hover {
+    background: rgba(255,255,255,0.4);
+    </style>
+</head>
+
+<body>
+
+    <a class="back" href="../index.html">← 이전으로 돌아가기</a>
+
+
+    <div class="slider">
+        <div class="slides">
+            <img src="1.jpg">
+            <img src="2.jpg">
+            <img src="3.jpg">
+
+        </div>
+
+        <div class="btn left" onclick="prev()">❮</div>
+        <div class="btn right" onclick="next()">❯</div>
+    </div>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelector('.slides');
+        const total = document.querySelectorAll('.slides img').length;
+
+        function show() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function next() {
+            index = (index + 1) % total;
+            show();
+        }
+
+        function prev() {
+            index = (index - 1 + total) % total;
+            show();
+        }
+    </script>
+
+</body>
+</html>

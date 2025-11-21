@@ -1,114 +1,122 @@
-<!DOCTYPE html>
 <html>
 <head>
-<title>관철동 상가</title>
-<meta charset="utf-8">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
+    <title>ALT-2 상가</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            background: rgba(120,120,120,0.2);
+            padding: 8px 12px;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+            z-index: 999;
+        }
+
+        /* ★ 가로 이미지 박스 컨테이너 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);   /* 기본 4개 */
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* ★ 이미지 박스 */
+        .item {
+            background: #fafafa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        /* ★ 설명 박스 */
+        .caption {
+            padding: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        /* ===== 반응형 ===== */
+
+        /* 태블릿 (가로 2개) */
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 모바일 (가로 1개) */
+        @media (max-width: 550px) {
+            .gallery {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .item img {
+                height: 220px;
+            }
+        }
+
+    </style>
+
 </head>
-<body class="multiple-scenes ">
 
-<div id="pano"></div>
+<body>
 
-<div id="sceneList">
-  <ul class="scenes">
+    <div class="page-title">ALT-1 상가</div>
 
-      <a href="javascript:void(0)" class="scene" data-id="0-">
-        <li class="text">승강장</li>
-      </a>
+    <a class="back" href="../index.html">← 메인화면 돌아가기</a>
 
-      <a href="javascript:void(0)" class="scene" data-id="1-4">
-        <li class="text">4층계단</li>
-      </a>
+    <!-- ===== 가로 이미지 갤러리 시작 ===== -->
+    <div class="gallery">
 
-      <a href="javascript:void(0)" class="scene" data-id="2-4">
-        <li class="text">4층전망</li>
-      </a>
+        <div class="item" onclick="location.href='panorama/index.html'">
+            <img src="cg/Thumbnail_top_shop_panorama.jpg">
+            <div class="caption">파노라마</div>
+        </div>
 
-      <a href="javascript:void(0)" class="scene" data-id="3-3">
-        <li class="text">3층계단</li>
-      </a>
-
-      <a href="javascript:void(0)" class="scene" data-id="4-3">
-        <li class="text">3층전망</li>
-      </a>
-
-      <a href="javascript:void(0)" class="scene" data-id="5-2">
-        <li class="text">2층계단</li>
-      </a>
-
-      <a href="javascript:void(0)" class="scene" data-id="6-2">
-        <li class="text">2층전망</li>
-      </a>
-
-      <a href="javascript:void(0)" class="scene" data-id="7-1">
-        <li class="text">1층계단</li>
-      </a>
-
-      <a href="javascript:void(0)" class="scene" data-id="8-1">
-        <li class="text">1층전망</li>
-      </a>
-
-      <a href=../index.html class="scene">
-        <li class="text">main</li>
-      </a>
-
-      <a href=../Thumbnail/viewcg.html class="scene">
-        <li class="text">조감도</li>
-      </a>
+        <div class="item" onclick="location.href='cg/viewcg.html'">
+            <img src="cg/Thumbnail_top.jpg">
+            <div class="caption">CG</div>
+        </div>
 
 
-
-
-  </ul>
-</div>
-
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
-
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
-
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
-
-<a href="javascript:void(0)" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
-
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
-</a>
-
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
-
-<script src="data.js"></script>
-<script src="index.js"></script>
+    </div>
 
 </body>
 </html>

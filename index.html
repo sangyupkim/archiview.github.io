@@ -1,62 +1,109 @@
 <html>
 <head>
-    <title>panorama view</title>
+    <title>Panorama View Slider</title>
     <style>
-        /* 이미지 호버 시 확대 효과 */
-        .hover-img {
-            transition: transform 0.3s ease;
-        }
-        .hover-img:hover {
-            transform: scale(1.05);
+        body {
+            margin: 0;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        /* 전체 가운데 정렬 */
-        .center-box {
+        .slider-container {
+            width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            cursor: pointer; /* 클릭 가능 표시 */
             text-align: center;
-            margin-top: 50px;
         }
 
-        /* 각 이미지+텍스트 묶음 */
-        .item-box {
-            margin-bottom: 50px;  /* 두 이미지 사이 간격 */
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
         }
+
+        .slide img:hover {
+            transform: scale(1.03);
+        }
+
+        /* 버튼 */
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 35px;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border-radius: 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .left { left: 10px; }
+        .right { right: 10px; }
     </style>
 </head>
 
 <body>
 
-    <div class="center-box">
-        <h1 style="font-size:50px">관철동 파노라마뷰</h1>
+    <div class="slider-container">
+        <div class="slides">
 
-        <!-- ===== 1번 이미지 박스 ===== -->
-        <div class="item-box">
-            <a href="concerthall/index.html">
-                <img src="Thumbnail/Thumbnail_hall.jpg" class="hover-img" 
-                     alt="관철동 공연장" style="width:500px;">
-            </a>
-
-            <div style="font-size:24px; margin-top:10px;">
-                <a href="concerthall/index.html" style="text-decoration:none; color:black;">
-                    공연장
-                </a>
+            <!-- 첫 번째 이미지 (공연장) -->
+            <div class="slide" onclick="location.href='concerthall/index.html'">
+                <img src="Thumbnail/Thumbnail_hall.jpg" alt="공연장">
+                <div style="font-size:22px; margin-top:10px;">공연장</div>
             </div>
+
+            <!-- 두 번째 이미지 (상가) -->
+            <div class="slide" onclick="location.href='shopping/index.html'">
+                <img src="Thumbnail/Thumbnail_top.jpg" alt="상가">
+                <div style="font-size:22px; margin-top:10px;">상가</div>
+            </div>
+
         </div>
 
-        <!-- ===== 2번 이미지 박스 ===== -->
-        <div class="item-box">
-            <a href="shopping/index.html">
-                <img src="Thumbnail/Thumbnail_top.jpg" class="hover-img" 
-                     alt="관철동 상가" style="width:500px;">
-            </a>
-
-            <div style="font-size:24px; margin-top:10px;">
-                <a href="shopping/index.html" style="text-decoration:none; color:black;">
-                    상가
-                </a>
-            </div>
-        </div>
-
+        <!-- 좌우 버튼 -->
+        <div class="btn left" onclick="prevSlide()">❮</div>
+        <div class="btn right" onclick="nextSlide()">❯</div>
     </div>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelector('.slides');
+        const total = document.querySelectorAll('.slide').length;
+
+        function updateSlide() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            index = (index + 1) % total;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + total) % total;
+            updateSlide();
+        }
+    </script>
 
 </body>
 </html>

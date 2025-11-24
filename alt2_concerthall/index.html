@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>ALT-2 상가</title>
+    <title>ALT-2 공연장</title>
 
     <style>
         body {
@@ -34,12 +34,19 @@
 
         /* ★ 가로 이미지 박스 컨테이너 */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);   /* 기본 4개 */
+            display: flex;
+            flex-wrap: wrap;        /* 줄바꿈 허용 */
+            justify-content: center; /* 가운데 정렬 */
             gap: 20px;
             width: 90%;
             max-width: 1200px;
         }
+
+        /* ★ 이미지 카드 고정 폭 지정 */
+        .item {
+            width: 280px;           /* 이미지 박스의 고정 가로 크기 */
+        }
+
 
         /* ★ 이미지 박스 */
         .item {
@@ -106,7 +113,7 @@
     <div class="gallery">
 
         <div class="item" onclick="location.href='panorama/index.html'">
-            <img src="cg/panothumbnail.jpg">
+            <img src="../thumbnail/공연장파노라마썸네일.jpg">
             <div class="caption">파노라마</div>
         </div>
 

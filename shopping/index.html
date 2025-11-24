@@ -34,12 +34,19 @@
 
         /* ★ 가로 이미지 박스 컨테이너 */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);   /* 기본 4개 */
+            display: flex;
+            flex-wrap: wrap;        /* 줄바꿈 허용 */
+            justify-content: center; /* 가운데 정렬 */
             gap: 20px;
             width: 90%;
             max-width: 1200px;
         }
+
+        /* ★ 이미지 카드 고정 폭 지정 */
+        .item {
+            width: 280px;           /* 이미지 박스의 고정 가로 크기 */
+        }
+
 
         /* ★ 이미지 박스 */
         .item {

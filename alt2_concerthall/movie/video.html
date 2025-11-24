@@ -35,6 +35,18 @@
         .thumbnail:hover {
             transform: scale(1.08);
         }
+        /* 썸네일 + 텍스트 묶음 */
+.thumb-item {
+    text-align: center;
+}
+
+/* 썸네일 아래 텍스트 */
+.thumb-title {
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
 
         /* 선택된 썸네일 강조 */
         .active-thumb {
@@ -69,15 +81,26 @@
     <!-- ===== 메인 비디오 ===== -->
     <div class="video-box">
         <video id="videoPlayer" width="900" controls autoplay>
-            <source id="1.mp4" src="1.mp4">
+            <source id="videoSource" src="">
         </video>
     </div>
 
     <!-- ===== 밑에 썸네일 3개 예시 ===== -->
     <div class="thumb-container">
-        <img src="Thumbnail/thumb_concert.jpg" class="thumbnail" data-video="1.mp4">
-        <img src="Thumbnail/thumb_shopping.jpg" class="thumbnail" data-video="videos/shopping.mp4">
-        <img src="Thumbnail/thumb_default.jpg" class="thumbnail" data-video="videos/default.mp4">
+        <div class="thumb-item">
+            <img src="동영상1썸네일.jpg" class="thumbnail" data-video="1.mp4">
+            <div class="thumb-title">천장열림</div>
+        </div>
+
+        <div class="thumb-item">
+            <img src="동영상2썸네일.jpg" class="thumbnail" data-video="2.mp4">
+            <div class="thumb-title">공연장 회전</div>
+        </div>
+
+        <div class="thumb-item">
+            <img src="동영상3썸네일.jpg" class="thumbnail" data-video="3.mp4">
+            <div class="thumb-title">외부전경</div>
+        </div>
     </div>
 
     <a class="back-btn" href="../index.html">← 이전으로 돌아가기</a>
@@ -88,15 +111,14 @@
         const videoPlayer = document.getElementById("videoPlayer");
         const videoSource = document.getElementById("videoSource");
 
-        // URL 파라미터에 따라 초기 영상 설정
+        // URL 파라미터에 따라 영상 설정
         if (vid === "천장열림") {
             videoSource.src = "1.mp4";
         } else if (vid === "공연장회전(내부)") {
             videoSource.src = "2.mp4";
         } else {
-            videoSource.src = "3.mp4";
+            videoSource.src = "";   // ← 기본값 없음
         }
-
         videoPlayer.load();
 
         // ========== 썸네일 클릭 시 다른 영상 재생 ==========

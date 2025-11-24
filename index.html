@@ -1,130 +1,140 @@
 <html>
 <head>
-    <title>Panorama View Slider</title>
+    <title>관철동 33-1 업무시설 계획안</title>
+
     <style>
-        body
-        {
+        body {
             margin: 0;
             background: #fff;
             display: flex;
-            flex-direction: column; /* 세로 정렬 위해 추가 */
-            justify-content: flex-start;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            padding-top: 40px;
+            font-family: Arial, sans-serif;
         }
 
-        /* 페이지 제목 스타일 */
         .page-title {
             font-size: 32px;
-            margin-top: 40px;
-            margin-bottom: 30px;
             font-weight: bold;
-            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .slider-container {
-            width: 600px;
-            position: relative;
-            overflow: hidden;
+        .back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            background: rgba(120,120,120,0.2);
+            padding: 8px 12px;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+            z-index: 999;
         }
 
-        .slides {
+        /* ★ 가로 이미지 박스 컨테이너 */
+        .gallery {
             display: flex;
-            transition: transform 0.4s ease-in-out;
+            flex-wrap: wrap;        /* 줄바꿈 허용 */
+            justify-content: center; /* 가운데 정렬 */
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
         }
 
-        .slide {
-            min-width: 100%;
-            cursor: pointer;
-            text-align: center;
+        /* ★ 이미지 카드 고정 폭 지정 */
+        .item {
+            width: 280px;           /* 이미지 박스의 고정 가로 크기 */
         }
 
-        .slide img {
-            width: 100%;
-            border-radius: 10px;
+
+        /* ★ 이미지 박스 */
+        .item {
+            background: #fafafa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s;
-        }
-
-        .slide img:hover {
-            transform: scale(1.03);
-        }
-
-        .btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 35px;
-            background: rgba(0,0,0,0.3);
-            color: white;
-            border-radius: 10px;
-            padding: 5px 15px;
             cursor: pointer;
-            user-select: none;
         }
 
-        .btn:hover {
-            background: rgba(0,0,0,0.5);
+        .item:hover {
+            transform: translateY(-5px);
         }
 
-        .left { left: 10px; }
-        .right { right: 10px; }
+        .item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        /* ★ 설명 박스 */
+        .caption {
+            padding: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        /* ===== 반응형 ===== */
+
+        /* 태블릿 (가로 2개) */
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 모바일 (가로 1개) */
+        @media (max-width: 550px) {
+            .gallery {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .item img {
+                height: 220px;
+            }
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <!-- ★ 페이지 제목 추가 ★ -->
     <div class="page-title">관철동 33-1 업무시설 계획안</div>
 
-    <div class="slider-container">
-        <div class="slides">
 
-            <div class="slide" onclick="location.href='concerthall/index.html'">
-                <img src="Thumbnail/Thumbnail_hall.jpg" alt="공연장">
-                <div style="font-size:22px; margin-top:10px;">ALT-1 공연장</div>
-            </div>
+    <!-- ===== 가로 이미지 갤러리 시작 ===== -->
+    <div class="gallery">
 
-            <div class="slide" onclick="location.href='shopping/index.html'">
-                <img src="Thumbnail/Thumbnail_top.jpg" alt="상가">
-                <div style="font-size:22px; margin-top:10px;">ALT-1 상가</div>
-            </div>
-
-            <div class="slide" onclick="location.href='alt2_concerthall/index.html'">
-                <img src="Thumbnail/alt2-con.jpg" alt="ALT-2 공연장">
-                <div style="font-size:22px; margin-top:10px;">ALT-2 공연장</div>
-            </div>
-
-            <div class="slide" onclick="location.href='alt2_shopping/index.html'">
-                <img src="Thumbnail/alt2-shop.jpg" alt="ALT-2 상가">
-                <div style="font-size:22px; margin-top:10px;">ALT-2 상가</div>
-            </div>
-
-
+        <div class="item" onclick="location.href='concerthall/index.html'">
+            <img src="Thumbnail/Thumbnail_hall.jpg">
+            <div class="caption">ALT-1 공연장</div>
         </div>
 
-        <div class="btn left" onclick="prevSlide()">❮</div>
-        <div class="btn right" onclick="nextSlide()">❯</div>
+        <div class="item" onclick="location.href='shopping/index.html'">
+            <img src="Thumbnail/Thumbnail_top.jpg">
+            <div class="caption">ALT-1 상가</div>
+        </div>
+
+        <!-- ★ 여기처럼 계속 이미지 추가 가능 ★ -->
+        <div class="item" onclick="location.href='alt2_concerthall/index.html'">
+            <img src="Thumbnail/alt2-con.jpg">
+            <div class="caption">ALT-2 공연장</div>
+        </div>
+
+        <div class="item" onclick="location.href='alt2_shopping/index.html'">
+            <img src="Thumbnail/alt2-shop.jpg">
+            <div class="caption">ALT-2 상가</div>
+        </div>
+
+
+
     </div>
-
-    <script>
-        let index = 0;
-        const slides = document.querySelector('.slides');
-        const total = document.querySelectorAll('.slide').length;
-
-        function updateSlide() {
-            slides.style.transform = `translateX(-${index * 100}%)`;
-        }
-
-        function nextSlide() {
-            index = (index + 1) % total;
-            updateSlide();
-        }
-
-        function prevSlide() {
-            index = (index - 1 + total) % total;
-            updateSlide();
-        }
-    </script>
 
 </body>
 </html>

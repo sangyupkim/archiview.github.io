@@ -1,8 +1,8 @@
 var APP_DATA = {
   "scenes": [
     {
-      "id": "0-1",
-      "name": "남산뷰1",
+      "id": "0-",
+      "name": "옥상층",
       "levels": [
         {
           "tileSize": 256,
@@ -32,8 +32,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "1-2",
-      "name": "남산뷰2",
+      "id": "1-14",
+      "name": "지상14층",
       "levels": [
         {
           "tileSize": 256,
@@ -63,8 +63,8 @@ var APP_DATA = {
       "infoHotspots": []
     },
     {
-      "id": "2-3",
-      "name": "남산뷰3",
+      "id": "2-13",
+      "name": "지상13층",
       "levels": [
         {
           "tileSize": 256,
